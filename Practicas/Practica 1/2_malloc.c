@@ -19,6 +19,8 @@ int main(){
 	int *arreglo;
 
 	printf("\tCREACION DE ARREGLO DE TAMANIO DINAMICO\n\n\n");
+    
+    printf("HDSPTM\n");
 
 	printf("INGRESA EL TAMANIO DEL ARREGLO\n");
 	//scanf("%d", &tam);
