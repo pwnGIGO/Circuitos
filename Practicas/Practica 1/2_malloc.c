@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Este metodo llena la lista
 void llenaLista(int* lista, int tam){
 	for (int i = 0; i < tam; ++i){
 		lista[i] = i*2;
 	}
 }
 
+// Este metodo imprime la lista
 void muestraLista(int* lista, int tam){
 	for (int i = 0; i < tam; ++i){
 		printf("%d ", lista[i]);
@@ -20,7 +22,7 @@ int main(){
 
 	printf("\tCREACION DE ARREGLO DE TAMANIO DINAMICO\n\n\n");
     
-    printf("HDSPTM\n");
+    printf("HDSPTM Jimbo\n");
 
 	printf("INGRESA EL TAMANIO DEL ARREGLO\n");
 	//scanf("%d", &tam);
