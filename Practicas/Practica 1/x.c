@@ -12,7 +12,7 @@
         scanf("%d",&k);
         int A[k];
 }*/
-
+// PUTO
 int main(){
     int state,k,i,m,t,m2;
     k=0;
