@@ -21,47 +21,41 @@ int main(){
     
     for(;;){
         switch(estado){
-            case A:
-                
+            case A: // Leer del teclado
                 recorre = 0;
                 printf("Ingresa la expresion algebraica: ");
                 scanf("%[^\n]s", expresion);
                 getchar();
                 estado = B;
-
-            break;
+                break;
             case B:
-                
-                if(expresion[recorre] == '('){
-                    estado = C;
-                }
-                if(expresion[recorre] == ')'){
-                    estado = D;
-                }
                 recorre++;
                 if(expresion[recorre] == '\0'){
                     printf("%d", stack.top);
-                    if(stack.top == -1){
+                    if(stack.top == -1){ // Pila vacia
                         printf("\nTu expresion algebraica es correcta\n\n");
                     }else{
                         printf("\nTu expresion es incorrecta\n\n");
                     }
                     estado = A;
+                }else{
+                    if(expresion[recorre] == '('){
+                        estado = C;
+                    }
+                    if(expresion[recorre] == ')'){
+                        estado = D;
+                    }
+
                 }
- 
-            break;
+                break;
             case C:
-                
                 push_d(&stack, pon);
                 estado = B;
-                
-            break;
+                break;
             case D:
-                
                 pop_d(&stack, &pon);
                 estado =B;
-                
-            break;
+                break;
         }
     }
     return 0;
