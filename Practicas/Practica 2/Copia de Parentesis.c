@@ -31,7 +31,7 @@ int main(){
             case B:
                 recorre++;
                 if(expresion[recorre] == '\0'){
-                    printf("%d", stack.top);
+                    printf("%d culero\n", stack.top);
                     if(stack.top == -1){ // Pila vacia
                         printf("\nTu expresion algebraica es correcta\n\n");
                     }else{
@@ -50,10 +50,12 @@ int main(){
                 break;
             case C:
                 push_d(&stack, pon);
+                printf("%d puto\n", stack.top);
                 estado = B;
                 break;
             case D:
                 pop_d(&stack, &pon);
+                printf("%d mamon\n", stack.top);
                 estado =B;
                 break;
         }
