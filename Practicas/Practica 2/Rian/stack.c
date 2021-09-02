@@ -21,7 +21,7 @@ int pop_d(stack_d *stack, int *val){
     ifpop = 1;
   }
   else{
-    printf("\nError pop: stack empty\n");
+    //printf("\nError pop: stack empty\n");
   }
   
   return ifpop;
@@ -36,7 +36,7 @@ int push_d(stack_d *stack, int val){
     ifpush = 1;
   }
   else{
-    printf("\nError push: stack overflow\n");
+    //printf("\nError push: stack overflow\n");
   }
   
   return ifpush;
