@@ -5,26 +5,25 @@
 
 #define A (0)
 #define B (1)
-#define C (2)
-#define D (3)
 
 #define MAX_STACK 40
 
 int main(){
-    int estado, recorre, pon, ponmas, contador;
+    int estado, recorre, parentesis, corchetes, agrega, agregamas;
     char expresion[100];
     
     stack_d stack;
     stack = init_stack_d(MAX_STACK);
     estado = A;
-    ponmas = 2;
-    pon = 1;
+    agrega = 1;
+    agregamas = 10;
     
     for(;;){
         switch(estado){
             case A:
                 
-                contador = 0;
+                parentesis = 0;
+                corchetes = 0;
                 recorre = 0;
                 stack.top = -1;
                 printf("Ingresa la expresion algebraica: ");
@@ -36,25 +35,26 @@ int main(){
             case B:
                 
                 if(expresion[recorre] == '('){
-                    push_d(&stack, pon);
-                    contador++;
+                    parentesis = parentesis + push_d(&stack, agrega);
                 }
                 if(expresion[recorre] == ')'){
-                    pop_d(&stack, &pon);
-                    contador--;
+                    if(stack.data[stack.top] == 1){
+                      pop_d(&stack, &agrega);
+                    }
+                    parentesis-=1;
                 }
                 if(expresion[recorre] == '['){
-                    push_d(&stack, ponmas);
-                    contador+=2;
+                    corchetes = corchetes + push_d(&stack, agregamas);
                 }
                 if(expresion[recorre] == ']'){
-                    pop_d(&stack, &ponmas);
-                    contador-=2;
+                    if(stack.data[stack.top] == 10){
+                      pop_d(&stack, &agregamas);
+                    }
+                    corchetes-=1;
                 }
-
                 recorre++;
                 if(expresion[recorre] == '\0'){
-                    if(stack.top == -1 && contador == 0){
+                    if(stack.top == -1 && parentesis == 0 && corchetes == 0){
                         printf("\nTu expresion algebraica es correcta\n\n");
                     }else{
                         printf("\nTu expresion es incorrecta\n\n");
